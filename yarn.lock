@@ -140,7 +140,47 @@
     path-browserify "^1.0.0"
     url "^0.11.0"
 
-"@openzeppelin/upgrades@^2.5.1", "@openzeppelin/upgrades@^2.5.3":
+"@openzeppelin/upgrades@2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/upgrades/-/upgrades-2.5.1.tgz#7909dfc582d0ab202ac6401925c7674d96ab3c57"
+  integrity sha512-RAX/1rIPa4mXH2vgis3TybbqRLV8/rBDahs760FSo4O4jiaIRAn1kEuIBDAjAnvYAjs/+PyVYBNm0+QzHFmpBg==
+  dependencies:
+    "@types/cbor" "^2.0.0"
+    "@types/web3" "^1.0.14"
+    axios "^0.18.0"
+    bignumber.js "^7.2.0"
+    cbor "^4.1.5"
+    chalk "^2.4.1"
+    ethers "^4.0.20"
+    glob "^7.1.3"
+    lodash.concat "^4.5.0"
+    lodash.difference "^4.5.0"
+    lodash.every "^4.6.0"
+    lodash.findlast "^4.6.0"
+    lodash.flatten "^4.4.0"
+    lodash.includes "^4.3.0"
+    lodash.invertby "^4.7.0"
+    lodash.isempty "^4.4.0"
+    lodash.isequal "^4.5.0"
+    lodash.isstring "^4.0.1"
+    lodash.keys "^4.2.0"
+    lodash.map "^4.6.0"
+    lodash.omit "^4.5.0"
+    lodash.pick "^4.4.0"
+    lodash.pickby "^4.6.0"
+    lodash.random "^3.2.0"
+    lodash.reverse "^4.0.1"
+    lodash.some "^4.6.0"
+    lodash.uniq "^4.5.0"
+    lodash.values "^4.3.0"
+    lodash.without "^4.4.0"
+    semver "^5.5.1"
+    spinnies "^0.4.2"
+    truffle-flattener "^1.4.0"
+    web3 "1.0.0-beta.37"
+    web3-utils "1.0.0-beta.37"
+
+"@openzeppelin/upgrades@^2.5.3":
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/@openzeppelin/upgrades/-/upgrades-2.5.3.tgz#3b91a1898c5f73884b094c914932f0e05bb970aa"
   integrity sha512-3tF3CCcfXb1OsCVjlv7v694pGdO+ssJddgDYI+K6AwUdAmxafaHSaftCFQ5BRmdpHKCxzAYrc2SSLHZpLpXl2g==
@@ -4715,11 +4755,6 @@ lodash.invertby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.invertby/-/lodash.invertby-4.7.0.tgz#cdebb6cd4942aa6b8df2c74be1c5d948682718b0"
   integrity sha1-zeu2zUlCqmuN8sdL4cXZSGgnGLA=
 
-lodash.isarray@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/lodash.isarray/-/lodash.isarray-4.0.0.tgz#2aca496b28c4ca6d726715313590c02e6ea34403"
-  integrity sha1-KspJayjEym1yZxUxNZDALm6jRAM=
-
 lodash.isempty@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
@@ -4854,11 +4889,6 @@ lodash.without@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
   integrity sha1-PNRXSgC2e643OpS3SHcmQFB7eqw=
-
-lodash@4.17.10:
-  version "4.17.10"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
-  integrity sha512-UejweD1pDoXu+AD825lWwp4ZGtSwgnpZxb3JDViD7StjQz+Nb/6l093lx4OQ0foGWNRoc19mWy7BzL+UAK2iVg==
 
 lodash@^4.14.2, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.2.0:
   version "4.17.15"
@@ -5453,11 +5483,6 @@ node-pre-gyp@^0.12.0:
     rimraf "^2.6.1"
     semver "^5.3.0"
     tar "^4"
-
-node-watch@0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/node-watch/-/node-watch-0.6.3.tgz#9abf739ae0638435be6c0d1c99d4dc2e53df7317"
-  integrity sha512-InVPsg51EemnMVH3fvrrSVgqVBMlksZ/mK7ZDWx/NuWdNQi28wcVJX1/BP38alraPFXbRi9jZ35OfK4Ra7l8Bg==
 
 nofilter@^1.0.1:
   version "1.0.2"
@@ -7433,7 +7458,7 @@ spinnies@^0.3.0:
     chalk "^2.4.2"
     cli-cursor "^3.0.0"
 
-spinnies@^0.4.2, spinnies@^0.4.3:
+spinnies@^0.4.2:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/spinnies/-/spinnies-0.4.3.tgz#2ea0ad148e78353ddf621dec3951a6f4c3cbf66e"
   integrity sha512-TTA2vWXrXJpfThWAl2t2hchBnCMI1JM5Wmb2uyI7Zkefdw/xO98LDy6/SBYwQPiYXL3swx3Eb44ZxgoS8X5wpA==
@@ -7962,23 +7987,6 @@ truffle-config@1.1.16:
     truffle-error "^0.0.5"
     truffle-provider "^0.1.12"
 
-truffle-config@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/truffle-config/-/truffle-config-1.1.2.tgz#fe897c4d4fd46f54aa7e12cb49f96ad20cc16c4f"
-  integrity sha512-TfvE5KCTZSXPfEZ8xgs25sOY7uR1xnE52dYPj+arLlaMw1UmMWcIts97HqqK+jVGeKlMPQu2/PwN5m18c+91Fg==
-  dependencies:
-    configstore "^4.0.0"
-    find-up "^2.1.0"
-    lodash "4.17.10"
-    original-require "1.0.1"
-    truffle-error "^0.0.3"
-    truffle-provider "^0.1.2"
-
-truffle-error@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/truffle-error/-/truffle-error-0.0.3.tgz#4bf55242e14deee1c7194932709182deff2c97ca"
-  integrity sha1-S/VSQuFN7uHHGUkycJGC3v8sl8o=
-
 truffle-error@^0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/truffle-error/-/truffle-error-0.0.5.tgz#6b5740c9f3aac74f47b85d654fff7fe2c1fc5e0e"
@@ -8005,16 +8013,6 @@ truffle-hdwallet-provider@1.0.17:
     web3 "1.2.1"
     websocket "^1.0.28"
 
-truffle-interface-adapter@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/truffle-interface-adapter/-/truffle-interface-adapter-0.2.2.tgz#f2ca897b4769b2190e3fb03f09fb98a178362126"
-  integrity sha512-dAKN+mSOlQV/+PlzUhBH90RAWrbp0Avm8nQcALoTwKa35PkS5RyB2ir1Y0AVoZvKVFYOmRDt884KHpZe8YgJRA==
-  dependencies:
-    bn.js "^4.11.8"
-    ethers "^4.0.32"
-    lodash "^4.17.13"
-    web3 "^1.2.0"
-
 truffle-interface-adapter@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/truffle-interface-adapter/-/truffle-interface-adapter-0.2.3.tgz#475a425dd8eb27fbe54486b0b25e697bb184d0fa"
@@ -8033,15 +8031,6 @@ truffle-provider@^0.1.12:
     truffle-error "^0.0.5"
     truffle-interface-adapter "^0.2.3"
     web3 "1.2.1"
-
-truffle-provider@^0.1.2:
-  version "0.1.13"
-  resolved "https://registry.yarnpkg.com/truffle-provider/-/truffle-provider-0.1.13.tgz#e121dc190101e57db238b9283f8b1066a468bf15"
-  integrity sha512-zbO8fNLCHfcDyaC2MI+l5eybN2aUGBpVoQcEHGov2U5LD2F6GJP8Vb3gf/Eqb//X3kZSKaUfGmy32hc87qxvBA==
-  dependencies:
-    truffle-error "^0.0.5"
-    truffle-interface-adapter "^0.2.2"
-    web3 "^1.2.0"
 
 truffle@5.0.38:
   version "5.0.38"
@@ -8915,7 +8904,7 @@ web3@1.0.0-beta.37:
     web3-shh "1.0.0-beta.37"
     web3-utils "1.0.0-beta.37"
 
-web3@1.2.1, web3@^1.2.0:
+web3@1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/web3/-/web3-1.2.1.tgz#5d8158bcca47838ab8c2b784a2dee4c3ceb4179b"
   integrity sha512-nNMzeCK0agb5i/oTWNdQ1aGtwYfXzHottFP2Dz0oGIzavPMGSKyVlr8ibVb1yK5sJBjrWVnTdGaOC2zKDFuFRw==
@@ -8930,7 +8919,6 @@ web3@1.2.1, web3@^1.2.0:
 
 websocket@^1.0.28, "websocket@github:web3-js/WebSocket-Node#polyfill/globalThis":
   version "1.0.29"
-  uid b134a75541b5db59668df81c03e926cd5f325077
   resolved "https://codeload.github.com/web3-js/WebSocket-Node/tar.gz/b134a75541b5db59668df81c03e926cd5f325077"
   dependencies:
     debug "^2.2.0"
@@ -8942,7 +8930,6 @@ websocket@^1.0.28, "websocket@github:web3-js/WebSocket-Node#polyfill/globalThis"
 
 "websocket@git://github.com/frozeman/WebSocket-Node.git#browserifyCompatible":
   version "1.0.26"
-  uid "6c72925e3f8aaaea8dc8450f97627e85263999f2"
   resolved "git://github.com/frozeman/WebSocket-Node.git#6c72925e3f8aaaea8dc8450f97627e85263999f2"
   dependencies:
     debug "^2.2.0"
@@ -9219,115 +9206,3 @@ yauzl@^2.4.2:
   dependencies:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
-
-zos-lib@2.4.2:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/zos-lib/-/zos-lib-2.4.2.tgz#69a76b8df91cfdd9c8f99aa0ccc9699420182cd4"
-  integrity sha512-q2lgsJ3eEUNKUBwfB7cYzjaioyy5b/PDcIWMoCkPViR0G/ku50iO5mc8P/KJJOwU7EZFGfn/2JQVOeRbQzz/WQ==
-  dependencies:
-    "@types/cbor" "^2.0.0"
-    "@types/web3" "^1.0.14"
-    axios "^0.18.0"
-    bignumber.js "^7.2.0"
-    cbor "^4.1.5"
-    chalk "^2.4.1"
-    ethers "^4.0.20"
-    glob "^7.1.3"
-    lodash.concat "^4.5.0"
-    lodash.difference "^4.5.0"
-    lodash.every "^4.6.0"
-    lodash.findlast "^4.6.0"
-    lodash.flatten "^4.4.0"
-    lodash.includes "^4.3.0"
-    lodash.invertby "^4.7.0"
-    lodash.isarray "^4.0.0"
-    lodash.isempty "^4.4.0"
-    lodash.isequal "^4.5.0"
-    lodash.isstring "^4.0.1"
-    lodash.keys "^4.2.0"
-    lodash.map "^4.6.0"
-    lodash.omit "^4.5.0"
-    lodash.pick "^4.4.0"
-    lodash.pickby "^4.6.0"
-    lodash.random "^3.2.0"
-    lodash.reverse "^4.0.1"
-    lodash.some "^4.6.0"
-    lodash.uniq "^4.5.0"
-    lodash.values "^4.3.0"
-    lodash.without "^4.4.0"
-    semver "^5.5.1"
-    spinnies "^0.4.3"
-    truffle-flattener "^1.4.0"
-    web3 "1.0.0-beta.37"
-    web3-utils "1.0.0-beta.37"
-
-zos@2.4.2:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/zos/-/zos-2.4.2.tgz#7330d2895f3a83c3ebe1549ac976072903ec3f44"
-  integrity sha512-smgL60Kj7nZ9fMXf7m/mM3wnfvZsXc5S5CgEgyLEE1k64kXtgldTPH80aDVKv/FmI/djFW8NHKk4qWhb+ZtdTQ==
-  dependencies:
-    "@openzeppelin/resolver-engine-core" "^0.3.3"
-    "@openzeppelin/resolver-engine-imports-fs" "^0.3.3"
-    "@types/fs-extra" "^7.0.0"
-    "@types/npm" "^2.0.29"
-    "@types/semver" "^5.5.0"
-    "@types/web3" "^1.0.14"
-    ajv "^6.10.0"
-    axios "^0.18.0"
-    bignumber.js "^8.0.2"
-    chalk "^2.4.1"
-    cheerio "^1.0.0-rc.2"
-    commander "^2.15.1"
-    ethereumjs-util "^6.1.0"
-    find-up "^3.0.0"
-    fs-extra "^7.0.1"
-    inquirer "^6.4.1"
-    is-url "^1.2.4"
-    lockfile "^1.0.4"
-    lodash.castarray "^4.4.0"
-    lodash.compact "^3.0.1"
-    lodash.concat "^4.5.0"
-    lodash.difference "^4.5.0"
-    lodash.every "^4.6.0"
-    lodash.filter "^4.6.0"
-    lodash.find "^4.6.0"
-    lodash.findindex "^4.6.0"
-    lodash.flatmap "^4.5.0"
-    lodash.flatten "^4.4.0"
-    lodash.flattendeep "^4.4.0"
-    lodash.foreach "^4.5.0"
-    lodash.frompairs "^4.0.1"
-    lodash.groupby "^4.6.0"
-    lodash.intersection "^4.4.0"
-    lodash.isarray "^4.0.0"
-    lodash.isempty "^4.4.0"
-    lodash.isequal "^4.5.0"
-    lodash.isnil "^4.0.0"
-    lodash.isnull "^3.0.0"
-    lodash.isstring "^4.0.1"
-    lodash.isundefined "^3.0.1"
-    lodash.map "^4.6.0"
-    lodash.max "^4.0.1"
-    lodash.maxby "^4.6.0"
-    lodash.merge "^4.6.1"
-    lodash.negate "^3.0.2"
-    lodash.omit "^4.5.0"
-    lodash.omitby "^4.6.0"
-    lodash.partition "^4.6.0"
-    lodash.pick "^4.4.0"
-    lodash.pickby "^4.6.0"
-    lodash.reverse "^4.0.1"
-    lodash.topairs "^4.3.0"
-    lodash.uniq "^4.5.0"
-    lodash.uniqby "^4.7.0"
-    lodash.uniqwith "^4.5.0"
-    npm-programmatic "0.0.12"
-    rlp "^2.2.3"
-    semver "^5.5.0"
-    simple-git "^1.110.0"
-    solc-wrapper "^0.5.8"
-    solidity-parser-antlr "^0.4.2"
-    spinnies "^0.3.0"
-    truffle-config "1.1.2"
-    web3 "1.0.0-beta.37"
-    zos-lib "2.4.2"
