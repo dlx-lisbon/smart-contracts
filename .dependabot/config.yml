@@ -6,3 +6,10 @@ update_configs:
     update_schedule: "weekly"
     default_assignees:
       - "obernardovieira"
+    automerged_updates:
+      - match:
+          dependency_type: "development"
+          update_type: "all"
+      - match:
+          dependency_type: "production"
+          update_type: "semver:patch"
