@@ -4,6 +4,7 @@ import "@openzeppelin/upgrades/contracts/Initializable.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC721/ERC721Full.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC721/ERC721Mintable.sol";
 
+
 /**
  * @title KudosCore
  * @dev Kudos control contract

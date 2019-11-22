@@ -3,6 +3,7 @@ pragma solidity ^0.5.10;
 import "@openzeppelin/upgrades/contracts/Initializable.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/ownership/Ownable.sol";
 
+
 /**
  * @title MeetupCore
  * @dev Meetup control contract
@@ -98,7 +99,12 @@ contract MeetupCore is Initializable, Ownable {
      * @param _seats meetup available seats
      * @param _infoHash IPFS hash containing the title, full description, and location of the meetup
      */
-    function editMeetup(uint256 _id, uint256 _date, uint256 _seats, string memory _infoHash) public onlyCoordinators {
+    function editMeetup(
+        uint256 _id,
+        uint256 _date,
+        uint256 _seats,
+        string memory _infoHash
+    ) public onlyCoordinators {
         Meetup memory meetup = meetups[_id];
         meetup.date = _date;
         meetup.seats = _seats;
