@@ -33,7 +33,7 @@
         "eslint-plugin-import": "2.18.2",
         "eslint-plugin-jsx-a11y": "6.2.3",
         "eslint-plugin-react": "7.16.0",
-        "eth-gas-reporter": "0.2.12",
+        "eth-gas-reporter": "0.2.13",
         "ethlint": "1.2.5",
         "ganache-cli": "6.7.0",
         "soldoc": "0.1.2-beta.0",
