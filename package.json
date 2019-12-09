@@ -38,7 +38,7 @@
         "chai": "4.2.0",
         "eslint": "6.7.2",
         "eslint-config-airbnb": "18.0.1",
-        "eslint-plugin-import": "2.18.2",
+        "eslint-plugin-import": "2.19.0",
         "eslint-plugin-jsx-a11y": "6.2.3",
         "eslint-plugin-react": "7.17.0",
         "eth-gas-reporter": "0.2.14",
@@ -48,9 +48,9 @@
         "solidity-coverage": "0.6.7",
         "truffle": "5.1.2",
         "truffle-typings": "1.0.8",
-        "ts-node": "^8.5.4",
+        "ts-node": "8.5.4",
         "typechain": "1.0.3",
-        "typechain-target-truffle": "^1.0.2",
+        "typechain-target-truffle": "1.0.2",
         "typescript": "3.7.3"
     }
 }
