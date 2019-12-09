@@ -8,7 +8,7 @@
  *
  * truffleframework.com/docs/advanced/configuration
  *
- * To deploy via Infura you'll need a wallet provider (like truffle-hdwallet-provider)
+ * To deploy via Infura you'll need a wallet provider (like @truffle/hdwallet-provider)
  * to sign your transactions before they're sent to a remote public node. Infura API
  * keys are available for free at: infura.io/register
  *
@@ -20,12 +20,15 @@
 
 // const fs = require('fs');
 // eslint-disable-next-line import/no-extraneous-dependencies
-const HDWalletProvider = require('truffle-hdwallet-provider');
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('ts-node/register');
 
 const infuraKey = 'fj4jll3k.....';
 const mnemonic = ''; // fs.readFileSync('.secret').toString().trim();
 
 module.exports = {
+    test_file_extension_regexp: /.*\.ts$/,
     /**
      * Networks define how you connect to your ethereum client and let you set the
      * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -47,6 +50,15 @@ module.exports = {
             host: '127.0.0.1', // Localhost (default: none)
             port: 8545, // Standard Ethereum port (default: none)
             network_id: '*', // Any network (default: none)
+        },
+
+        // this is necessary for coverage
+        coverage: {
+            host: 'localhost',
+            network_id: '*', // eslint-disable-line camelcase
+            port: 8555,
+            gas: 0xfffffffffff,
+            gasPrice: 0x01,
         },
 
         // Useful for deploying to a public network.
