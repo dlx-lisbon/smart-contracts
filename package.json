@@ -3,42 +3,54 @@
     "version": "0.0.1-apha",
     "description": "This is the the contracts repository for dlx meetup!",
     "files": [
-        "contracts"
+        "contracts",
+        "types",
+        "build"
     ],
     "scripts": {
-        "start:ganache:dev": "ganache-cli -m \"width whip dream dress captain vessel mix drive oxygen broken soap bone\" -p 8545 -i 201906 --debug",
+        "deploy:ganache": "truffle deploy --network development",
+        "start:geth:local": "./scripts/local_geth.sh",
+        "start:ganache:local": "./scripts/local_ganache.sh",
         "test": "scripts/test.sh",
         "test:ci": "CI=true scripts/test.sh",
         "coverage": "SOLIDITY_COVERAGE=true scripts/test.sh",
         "coverage:ci": "CI=true SOLIDITY_COVERAGE=true scripts/test.sh",
         "lint:sol": "solium -d contracts",
-        "lint:js": "eslint *.js .",
-        "lint": "npm run lint:sol && npm run lint:js",
+        "lint:ts": "tslint -c tslint.json 'test/**/*.ts'",
+        "lint": "yarn lint:sol && yarn lint:ts",
         "security": "docker run --rm --memory=3g -v $(pwd):/tmp -w \"/tmp/\" mythril/myth --truffle",
-        "docs": "soldoc docs/ contracts"
+        "docs": "soldoc docs/ contracts",
+        "generate-ts": "truffle compile && typechain --target truffle --outDir types/truffle-contracts './build/contracts/*.json'"
     },
     "keywords": [],
-    "author": "",
-    "license": "Apache-2.0",
+    "author": "dlx",
+    "license": "GPL-3.0-only",
     "dependencies": {
-        "@openzeppelin/cli": "2.6.0",
         "@openzeppelin/contracts-ethereum-package": "2.4.0",
         "@openzeppelin/upgrades": "2.6.0"
     },
     "devDependencies": {
-        "chai": "4.2.0",
+        "@openzeppelin/cli": "2.6.0",
+        "@truffle/hdwallet-provider": "1.0.26",
+        "@types/chai": "4.2.6",
+        "@types/node": "12.12.14",
         "bignumber.js": "9.0.0",
+        "chai": "4.2.0",
         "eslint": "6.7.2",
         "eslint-config-airbnb": "18.0.1",
         "eslint-plugin-import": "2.18.2",
         "eslint-plugin-jsx-a11y": "6.2.3",
-        "eth-gas-reporter": "0.2.14",
         "eslint-plugin-react": "7.17.0",
+        "eth-gas-reporter": "0.2.14",
         "ethlint": "1.2.5",
         "ganache-cli": "6.7.0",
         "soldoc": "0.1.2-beta.0",
         "solidity-coverage": "0.6.7",
         "truffle": "5.1.2",
-        "truffle-hdwallet-provider": "1.0.17"
+        "truffle-typings": "1.0.8",
+        "ts-node": "^8.5.4",
+        "typechain": "1.0.3",
+        "typechain-target-truffle": "^1.0.2",
+        "typescript": "3.7.3"
     }
 }
