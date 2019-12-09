@@ -30,7 +30,7 @@
         "bignumber.js": "9.0.0",
         "eslint": "6.7.2",
         "eslint-config-airbnb": "18.0.1",
-        "eslint-plugin-import": "2.18.2",
+        "eslint-plugin-import": "2.19.0",
         "eslint-plugin-jsx-a11y": "6.2.3",
         "eth-gas-reporter": "0.2.14",
         "eslint-plugin-react": "7.17.0",
