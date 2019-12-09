@@ -30,9 +30,10 @@ contract MeetupCore is Initializable, Ownable {
         uint256 status;
         uint256 date;
         uint256 seats;
-        mapping(address => bool) attendees;
         string infoHash;
     }
+    // meetup attendees
+    mapping(uint256 => mapping(address => bool)) public attendees;
     // meetups array
     Meetup[] public meetups;
     // coordinators map
@@ -132,7 +133,7 @@ contract MeetupCore is Initializable, Ownable {
     function joinMeetup(uint256 _id) public {
         Meetup storage meetup = meetups[_id];
         require(meetup.seats > 0, "No seats available!");
-        meetup.attendees[msg.sender] = true;
+        attendees[_id][msg.sender] = true;
         meetup.seats -= 1;
         meetups[_id] = meetup;
     }
@@ -143,8 +144,8 @@ contract MeetupCore is Initializable, Ownable {
      */
     function leaveMeetup(uint256 _id) public {
         Meetup storage meetup = meetups[_id];
-        require(meetup.attendees[msg.sender] == true, "Not in meetup!");
-        meetup.attendees[msg.sender] = false;
+        require(attendees[_id][msg.sender] == true, "Not in meetup!");
+        attendees[_id][msg.sender] = false;
         meetup.seats += 1;
         meetups[_id] = meetup;
     }
