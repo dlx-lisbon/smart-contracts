@@ -106,5 +106,5 @@ typings/
 # the .secret
 .secret
 
-# zos session
-.zos.session
+# ignore types
+types/
