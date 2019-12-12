@@ -17,7 +17,7 @@
         "coverage": "SOLIDITY_COVERAGE=true scripts/test.sh",
         "coverage:ci": "CI=true SOLIDITY_COVERAGE=true scripts/test.sh",
         "lint:sol": "solium -d contracts",
-        "lint:ts": "echo \"NOt yet available!\"",
+        "lint:ts": "eslint \"test/**/*.ts\"",
         "lint": "yarn lint:sol && yarn lint:ts",
         "security": "docker run --rm --memory=3g -v $(pwd):/tmp -w \"/tmp/\" mythril/myth --truffle",
         "docs": "soldoc docs/ contracts",
@@ -35,6 +35,8 @@
         "@truffle/hdwallet-provider": "1.0.26",
         "@types/chai": "4.2.7",
         "@types/node": "12.12.17",
+        "@typescript-eslint/eslint-plugin": "2.11.0",
+        "@typescript-eslint/parser": "2.11.0",
         "bignumber.js": "9.0.0",
         "chai": "4.2.0",
         "eslint": "6.7.2",
@@ -53,5 +55,10 @@
         "typechain": "1.0.3",
         "typechain-target-truffle": "1.0.2",
         "typescript": "3.7.3"
+    },
+    "lint-staged": {
+        "*.ts": [
+            "eslint"
+        ]
     }
 }
