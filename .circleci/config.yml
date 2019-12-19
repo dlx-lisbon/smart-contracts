@@ -38,9 +38,15 @@ jobs:
       - run: lint
 workflows:
   version: 2
-  build_and_test:
+  everything:
     jobs:
       - build
-      - test
-      - coverage
-      - lint
+      - lint:
+          requires:
+            - build
+      - test:
+          requires:
+            - build
+      - coverage:
+          requires:
+            - build
