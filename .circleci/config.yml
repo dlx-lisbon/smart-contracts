@@ -4,7 +4,7 @@ executors:
   my-executor:
     docker:
       - image: circleci/node:10.16
-    working_directory: /tmp
+    working_directory: /tmp/dlx/contracts
 
 jobs:
   build:
