@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 executors:
   my-executor:
@@ -47,7 +47,6 @@ jobs:
       - run: lint
 
 workflows:
-  version: 2
   everything:
     jobs:
       - build
