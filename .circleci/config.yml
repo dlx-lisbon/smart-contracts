@@ -13,37 +13,24 @@ jobs:
       - run: mkdir -p workspace
       - run: cd workspace
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run: yarn install
-      - persist_to_workspace:
-          root: workspace
-          paths:
-            - node_modules
-            - build
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn
   test:
     executor: my-executor
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: /tmp/dlx/contracts/workspace
       - run: yarn test:ci
   coverage:
     executor: my-executor
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: /tmp/dlx/contracts/workspace
       - run: yarn coverage:ci
   lint:
     executor: my-executor
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: /tmp/dlx/contracts/workspace
       - run: lint
 
 workflows:
