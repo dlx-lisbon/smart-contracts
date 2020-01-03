@@ -1,48 +1,21 @@
 version: 2.1
 
-executors:
-  my-executor:
+jobs:
+  test:
     docker:
       - image: circleci/node:10.16
-    working_directory: /tmp/dlx/contracts
-
-jobs:
-  build:
-    executor: my-executor
     steps:
-      - run: mkdir -p workspace
-      - run: cd workspace
       - checkout
-      - run: yarn
-  test:
-    executor: my-executor
-    steps:
-      - attach_workspace:
-          at: /tmp/dlx/contracts/workspace
       - run: yarn test:ci
   coverage:
-    executor: my-executor
+    docker:
+      - image: circleci/node:10.16
     steps:
-      - attach_workspace:
-          at: /tmp/dlx/contracts/workspace
+      - checkout
       - run: yarn coverage:ci
-  lint:
-    executor: my-executor
-    steps:
-      - attach_workspace:
-          at: /tmp/dlx/contracts/workspace
-      - run: lint
 
 workflows:
-  everything:
+  build_and_test:
     jobs:
-      - build
-      - lint:
-          requires:
-            - build
-      - test:
-          requires:
-            - build
-      - coverage:
-          requires:
-            - build
+      - test
+      - coverage
