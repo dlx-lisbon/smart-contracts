@@ -14,10 +14,19 @@ jobs:
     steps:
       - checkout
       - run: yarn
+      - run: yarn build
       - run: yarn coverage:ci
+  lint:
+    docker:
+      - image: circleci/node:10.16
+    steps:
+      - checkout
+      - run: yarn
+      - run: yarn lint
 
 workflows:
   build_and_test:
     jobs:
       - test
       - coverage
+      - lint
