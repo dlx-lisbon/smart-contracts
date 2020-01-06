@@ -48,7 +48,7 @@
         "ethlint": "1.2.5",
         "ganache-cli": "6.7.0",
         "soldoc": "0.1.2-beta.0",
-        "solidity-coverage": "0.6.7",
+        "solidity-coverage": "0.7.0",
         "truffle": "5.1.7",
         "truffle-typings": "1.0.8",
         "ts-node": "8.5.4",
