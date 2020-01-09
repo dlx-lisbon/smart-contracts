@@ -64,6 +64,10 @@
         "typechain-target-truffle": "1.0.2",
         "typescript": "3.7.4"
     },
+    "resolutions": {
+        "soldoc/solidity-parser-antlr": "git://github.com/obernardovieira/solidity-parser-antlr.git#80086a4",
+        "*/solidity-parser-antlr": "^0.4.0"
+    },
     "lint-staged": {
         "*.ts": [
             "eslint"
