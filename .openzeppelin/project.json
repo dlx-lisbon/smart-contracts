@@ -1,15 +1,21 @@
 {
   "manifestVersion": "2.2",
   "contracts": {
-    "MeetupCore": "MeetupCore"
+    "MeetupCore": "MeetupCore",
+    "KudosCore": "KudosCore"
   },
   "dependencies": {},
   "name": "dlx-meetup",
   "version": "0.0.1",
   "compiler": {
-    "manager": "truffle",
+    "manager": "openzeppelin",
     "compilerSettings": {
-      "optimizer": {}
-    }
-  }
+      "optimizer": {
+        "enabled": false,
+        "runs": "200"
+      }
+    },
+    "solcVersion": "0.5.16"
+  },
+  "telemetryOptIn": true
 }
