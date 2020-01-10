@@ -34,7 +34,7 @@
         "@openzeppelin/cli": "2.6.0",
         "@truffle/hdwallet-provider": "1.0.28",
         "@types/chai": "4.2.7",
-        "@types/node": "13.1.5",
+        "@types/node": "13.1.6",
         "@typescript-eslint/eslint-plugin": "2.15.0",
         "@typescript-eslint/parser": "2.15.0",
         "bignumber.js": "9.0.0",
