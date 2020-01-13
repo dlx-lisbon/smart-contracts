@@ -149,4 +149,12 @@ contract MeetupCore is Initializable, Ownable {
         meetup.seats += 1;
         meetups[_id] = meetup;
     }
+
+    /**
+     * @dev Public method used to get the total number of meetups
+     * registered, independently of it's status.
+     */
+    function totalMeetups() public view returns(uint256) {
+        return meetups.length;
+    }
 }
