@@ -13,8 +13,7 @@ contract('MeetupCore', (accounts) => {
 
 
     beforeEach(async () => {
-        meetupCoreInstance = await MeetupCore.new({ from: owner });
-        meetupCoreInstance.initializeMeetup(owner, { from: owner });
+        meetupCoreInstance = await MeetupCore.new();
     });
 
     /**

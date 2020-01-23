@@ -1,14 +1,13 @@
 pragma solidity ^0.5.10;
 
-import "@openzeppelin/upgrades/contracts/Initializable.sol";
-import "@openzeppelin/contracts-ethereum-package/contracts/ownership/Ownable.sol";
+import "@openzeppelin/contracts/ownership/Ownable.sol";
 
 
 /**
  * @title MeetupCore
  * @dev Meetup control contract
  */
-contract MeetupCore is Initializable, Ownable {
+contract MeetupCore is Ownable {
 
     enum MeetupStatus {OPEN, CANCELED}
 
@@ -48,11 +47,10 @@ contract MeetupCore is Initializable, Ownable {
     }
 
     /**
-     * @dev Initializer method coded acording OZ system
-     * @param _owner address of the contract owner
+     * @dev Constructor method initializing MeetupCore
      */
-    function initializeMeetup(address _owner) public initializer {
-        Ownable.initialize(_owner);
+    constructor() public Ownable() {
+        //
     }
 
     /**
