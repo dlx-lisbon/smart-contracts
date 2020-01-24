@@ -108,3 +108,6 @@ typings/
 
 # ignore types
 types/
+
+.openzeppelin/.session
+.openzeppelin/dev-5777.json
