@@ -1,6 +1,6 @@
 {
-    "name": "dlx-ethereum",
-    "version": "0.0.1-apha",
+    "name": "dlx-contracts",
+    "version": "0.0.1-apha.0",
     "description": "This is the the contracts repository for dlx meetup!",
     "files": [
         "contracts",
@@ -31,6 +31,7 @@
         "@openzeppelin/contracts": "2.4.0"
     },
     "devDependencies": {
+        "@openzeppelin/test-helpers": "0.5.4",
         "@truffle/hdwallet-provider": "1.0.29",
         "@types/chai": "4.2.7",
         "@types/node": "13.5.0",
