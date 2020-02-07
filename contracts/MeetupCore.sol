@@ -22,10 +22,11 @@ contract MeetupCore is Ownable {
      * @param status meetup status
      * @param date meetup data
      * @param seats meetup seats available
-     * @param attendes meetup attendes addresses
+     * @param author meetup author addresses
      * @param infoHash meetup IPFS hash for info
      */
     struct Meetup {
+        address author;
         uint256 status;
         uint256 date;
         uint256 seats;
@@ -85,6 +86,7 @@ contract MeetupCore is Ownable {
         meetup.status = uint256(MeetupStatus.OPEN);
         meetup.date = _date;
         meetup.seats = _seats;
+        meetup.author = msg.sender;
         meetup.infoHash = _infoHash;
         uint256 id = meetups.push(meetup) - 1;
         emit NewMeetup(id, _date, _infoHash);
