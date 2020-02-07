@@ -51,9 +51,9 @@ contract('MeetupCore', (accounts) => {
         await meetupCoreInstance.newMeetup(currentTime.toString(), '3', fakeInfoHash, { from: owner });
         // TODO: listen to events
         const meetupData = (await meetupCoreInstance.meetups(0));
-        meetupData[0].toString().should.be.equal('0');
-        meetupData[1].toString().should.be.equal(currentTime.toString());
-        meetupData[2].toString().should.be.equal('3');
+        meetupData[1].toString().should.be.equal('0');
+        meetupData[2].toString().should.be.equal(currentTime.toString());
+        meetupData[3].toString().should.be.equal('3');
     });
 
     /**
@@ -66,11 +66,11 @@ contract('MeetupCore', (accounts) => {
         await meetupCoreInstance.newMeetup(currentTime.toString(), '3', fakeInfoHash, { from: owner });
         // TODO: listen to events
         let meetupData = (await meetupCoreInstance.meetups(0));
-        meetupData[2].toString().should.be.equal('3');
+        meetupData[3].toString().should.be.equal('3');
         await meetupCoreInstance.editMeetup(0, currentTime.toString(), '5', fakeInfoHash, { from: owner });
         // TODO: listen to events
         meetupData = (await meetupCoreInstance.meetups(0));
-        meetupData[2].toString().should.be.equal('5');
+        meetupData[3].toString().should.be.equal('5');
     });
 
     /**
@@ -83,11 +83,11 @@ contract('MeetupCore', (accounts) => {
         await meetupCoreInstance.newMeetup(currentTime.toString(), '3', fakeInfoHash, { from: owner });
         // TODO: listen to events
         let meetupData = (await meetupCoreInstance.meetups(0));
-        meetupData[0].toString().should.be.equal('0');
+        meetupData[1].toString().should.be.equal('0');
         await meetupCoreInstance.cancelMeetup(0, { from: owner });
         // TODO: listen to events
         meetupData = (await meetupCoreInstance.meetups(0));
-        meetupData[0].toString().should.be.equal('1');
+        meetupData[1].toString().should.be.equal('1');
     });
 
     /**
