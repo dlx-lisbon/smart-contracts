@@ -434,6 +434,19 @@
     "@typescript-eslint/typescript-estree" "2.19.0"
     eslint-visitor-keys "^1.1.0"
 
+"@typescript-eslint/typescript-estree@2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.18.0.tgz#cfbd16ed1b111166617d718619c19b62764c8460"
+  integrity sha512-gVHylf7FDb8VSi2ypFuEL3hOtoC4HkZZ5dOjXvVjoyKdRrvXAOPSzpNRnKMfaUUEiSLP8UF9j9X9EDLxC0lfZg==
+  dependencies:
+    debug "^4.1.1"
+    eslint-visitor-keys "^1.1.0"
+    glob "^7.1.6"
+    is-glob "^4.0.1"
+    lodash "^4.17.15"
+    semver "^6.3.0"
+    tsutils "^3.17.1"
+
 "@typescript-eslint/typescript-estree@2.19.0":
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.19.0.tgz#6bd7310b9827e04756fe712909f26956aac4b196"
@@ -7698,12 +7711,13 @@ sol-explore@1.6.1:
   resolved "https://registry.yarnpkg.com/sol-explore/-/sol-explore-1.6.1.tgz#b59f073c69fe332560d5a10c32ba8ca7f2986cfb"
   integrity sha1-tZ8HPGn+MyVg1aEMMrqMp/KYbPs=
 
-soldoc@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/soldoc/-/soldoc-0.1.2.tgz#869ce500f55fea4cf05569cdba4cde50791e8f45"
-  integrity sha512-qfy69HPtt7dxARPsZi6uswaBSd0kinEtYpYI/SLMSvbVoCt8C6uYsLXFx5ejZau/GVKKobdq/C0X72Ua0uakVg==
+soldoc@0.1.3-beta.0:
+  version "0.1.3-beta.0"
+  resolved "https://registry.yarnpkg.com/soldoc/-/soldoc-0.1.3-beta.0.tgz#69f54424e906db5c689c6fefb61749fa57f07dc8"
+  integrity sha512-ZRV4IBzYSJwS/SmKBe+pzgcb+K853/+rcTiuBR+A/R/I3musSWrFOClB9gCWGjV8vSiuwWtgOzNKEKZCHSbg0g==
   dependencies:
     "@hq20/solidity-parser-antlr" "0.4.12-alpha.0"
+    "@typescript-eslint/typescript-estree" "2.18.0"
 
 solidity-coverage@0.7.1:
   version "0.7.1"
@@ -8334,10 +8348,10 @@ truffle-typings@1.0.8:
     "@types/mocha" "^5.2.5"
     "@types/web3" "^1.0.18"
 
-truffle@5.1.11:
-  version "5.1.11"
-  resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.1.11.tgz#227e84df0b821ca775b7bc26984080d3c0989147"
-  integrity sha512-BzF5FoNJf0PP+R2KuIsxNsfbPzJ7VUrzC9iv/rKzK0S+MmafhntJf90shL6XJBgb0kNX/jDp4x2blk77bt3WMQ==
+truffle@5.1.12:
+  version "5.1.12"
+  resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.1.12.tgz#7d41fe2205b223e5631fcbe5c7faa09899b6ca38"
+  integrity sha512-lw5NC3S4esGqKIbqKXWutOcOMz3G+2LCKvacnrwH/PNh/Wk0qPKia7daiLJqRdqjJkHPtAUpRf8b1aqrcot2Ww==
   dependencies:
     app-module-path "^2.2.0"
     mocha "5.2.0"
