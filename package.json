@@ -22,7 +22,7 @@
         "security": "docker run --rm --memory=3g -v $(pwd):/tmp -w \"/tmp/\" mythril/myth --truffle",
         "docs": "soldoc docs/ contracts",
         "generate-ts": "truffle compile && typechain --target truffle --outDir types/truffle-contracts './build/contracts/*.json'",
-        "prepare": "truffle compile && yarn generate-ts"
+        "prepublish": "truffle compile && yarn generate-ts"
     },
     "keywords": [],
     "author": "dlx",
