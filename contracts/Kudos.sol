@@ -5,10 +5,10 @@ import "@openzeppelin/contracts/token/ERC721/ERC721MetadataMintable.sol";
 
 
 /**
- * @title KudosCore
+ * @title Kudos
  * @dev Kudos control contract
  */
-contract KudosCore is ERC721Full, ERC721MetadataMintable {
+contract Kudos is ERC721Full, ERC721MetadataMintable {
 
     /**
      * @dev Constructor method initializing KudosCore

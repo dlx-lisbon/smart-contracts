@@ -4,10 +4,10 @@ import "@openzeppelin/contracts/ownership/Ownable.sol";
 
 
 /**
- * @title MeetupCore
+ * @title Meetup
  * @dev Meetup control contract
  */
-contract MeetupCore is Ownable {
+contract Meetup is Ownable {
 
     enum MeetupStatus {OPEN, CANCELED}
 
@@ -48,7 +48,7 @@ contract MeetupCore is Ownable {
     }
 
     /**
-     * @dev Constructor method initializing MeetupCore
+     * @dev Constructor method initializing Meetup
      */
     constructor() public Ownable() {
         //
