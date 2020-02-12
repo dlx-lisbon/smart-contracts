@@ -46,48 +46,45 @@ contract('Meetup', (accounts) => {
      * @test {Meetup#newMeetup}
      */
     it('add new meetup with success', async () => {
-        const currentTime = Math.floor(Date.now() / 1000);
         const fakeInfoHash = 'Qm8xo3nxwo3uowoerjow';
-        await meetupInstance.newMeetup(currentTime.toString(), '3', fakeInfoHash, { from: owner });
+        await meetupInstance.newMeetup(fakeInfoHash, { from: owner });
         // TODO: listen to events
         const meetupData = (await meetupInstance.meetups(0));
-        meetupData[1].toString().should.be.equal('0');
-        meetupData[2].toString().should.be.equal(currentTime.toString());
-        meetupData[3].toString().should.be.equal('3');
+        meetupData[0].toString().should.be.equal(owner);
+        meetupData[1].toString().should.be.equal(fakeInfoHash);
     });
 
-    /**
-     * Test the editMeetup method
-     * @test {Meetup#editMeetup}
-     */
-    it('edit meetup with success', async () => {
-        const currentTime = Math.floor(Date.now() / 1000);
-        const fakeInfoHash = 'Qm8xo3nxwo3uowoerjow';
-        await meetupInstance.newMeetup(currentTime.toString(), '3', fakeInfoHash, { from: owner });
-        // TODO: listen to events
-        let meetupData = (await meetupInstance.meetups(0));
-        meetupData[3].toString().should.be.equal('3');
-        await meetupInstance.editMeetup(0, currentTime.toString(), '5', fakeInfoHash, { from: owner });
-        // TODO: listen to events
-        meetupData = (await meetupInstance.meetups(0));
-        meetupData[3].toString().should.be.equal('5');
-    });
+    // /**
+    //  * Test the editMeetup method
+    //  * @test {Meetup#editMeetup}
+    //  */
+    // it('edit meetup with success', async () => {
+    //     const currentTime = Math.floor(Date.now() / 1000);
+    //     const fakeInfoHash = 'Qm8xo3nxwo3uowoerjow';
+    //     await meetupInstance.newMeetup(currentTime.toString(), '3', fakeInfoHash, { from: owner });
+    //     // TODO: listen to events
+    //     let meetupData = (await meetupInstance.meetups(0));
+    //     meetupData[3].toString().should.be.equal('3');
+    //     await meetupInstance.editMeetup(0, currentTime.toString(), '5', fakeInfoHash, { from: owner });
+    //     // TODO: listen to events
+    //     meetupData = (await meetupInstance.meetups(0));
+    //     meetupData[3].toString().should.be.equal('5');
+    // });
 
     /**
      * Test the cancelMeetup method
      * @test {Meetup#cancelMeetup}
      */
     it('cancel meetup with success', async () => {
-        const currentTime = Math.floor(Date.now() / 1000);
         const fakeInfoHash = 'Qm8xo3nxwo3uowoerjow';
-        await meetupInstance.newMeetup(currentTime.toString(), '3', fakeInfoHash, { from: owner });
+        await meetupInstance.newMeetup(fakeInfoHash, { from: owner });
         // TODO: listen to events
-        let meetupData = (await meetupInstance.meetups(0));
-        meetupData[1].toString().should.be.equal('0');
+        let meetupData = (await meetupInstance.meetupCanceled(0));
+        meetupData.toString().should.be.equal('false');
         await meetupInstance.cancelMeetup(0, { from: owner });
         // TODO: listen to events
-        meetupData = (await meetupInstance.meetups(0));
-        meetupData[1].toString().should.be.equal('1');
+        meetupData = (await meetupInstance.meetupCanceled(0));
+        meetupData.toString().should.be.equal('true');
     });
 
     /**
@@ -95,9 +92,8 @@ contract('Meetup', (accounts) => {
      * @test {Meetup#joinMeetup}
      */
     it('join meetup with success', async () => {
-        const currentTime = Math.floor(Date.now() / 1000);
         const fakeInfoHash = 'Qm8xo3nxwo3uowoerjow';
-        await meetupInstance.newMeetup(currentTime.toString(), '3', fakeInfoHash, { from: owner });
+        await meetupInstance.newMeetup(fakeInfoHash, { from: owner });
         // TODO: listen to events
         (await meetupInstance.attendees(0, user1)).should.be.false;
         await meetupInstance.joinMeetup(0, { from: user1 });
@@ -110,9 +106,8 @@ contract('Meetup', (accounts) => {
      * @test {Meetup#leaveMeetup}
      */
     it('leave meetup with success', async () => {
-        const currentTime = Math.floor(Date.now() / 1000);
         const fakeInfoHash = 'Qm8xo3nxwo3uowoerjow';
-        await meetupInstance.newMeetup(currentTime.toString(), '3', fakeInfoHash, { from: owner });
+        await meetupInstance.newMeetup(fakeInfoHash, { from: owner });
         // TODO: listen to events
         (await meetupInstance.attendees(0, user1)).should.be.false;
         await meetupInstance.joinMeetup(0, { from: user1 });
