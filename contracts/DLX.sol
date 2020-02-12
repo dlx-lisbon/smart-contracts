@@ -4,19 +4,10 @@ import "@openzeppelin/contracts/ownership/Ownable.sol";
 
 
 /**
- * @title Meetup
- * @dev Meetup control contract
+ * @title DLX
+ * @dev DLX control contract
  */
-contract Meetup is Ownable {
-
-    enum MeetupStatus {OPEN, CANCELED}
-
-    event NewMeetup(uint256 _id, string _infoHash);
-    event UpdatedMeetup(uint256 _id, string _infoHash);
-    event CanceledMeetup(uint256 _id);
-    event NewCoordinator(address _coordinator);
-    event CoordinatorLeft(address _coordinator);
-
+contract DLX is Ownable {
     /**
      * Meetup data sctructure
      * @param author meetup author addresses
@@ -34,6 +25,12 @@ contract Meetup is Ownable {
     mapping(uint256 => bool) public meetupCanceled;
     // coordinators map
     mapping(address => bool) public coordinators;
+
+    event NewMeetup(uint256 _id, string _infoHash);
+    event UpdatedMeetup(uint256 _id, string _infoHash);
+    event CanceledMeetup(uint256 _id);
+    event NewCoordinator(address _coordinator);
+    event CoordinatorLeft(address _coordinator);
 
     /**
      * @dev Modifier to restrict any action to coordinators and contract owner.
