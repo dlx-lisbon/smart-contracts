@@ -2,9 +2,6 @@ import { should } from 'chai';
 import { KudosInstance } from '../types/truffle-contracts';
 
 const {
-    BN,
-    constants,
-    expectEvent,
     expectRevert,
     // eslint-disable-next-line @typescript-eslint/no-var-requires
 } = require('@openzeppelin/test-helpers');
@@ -23,20 +20,6 @@ contract('Kudos', (accounts) => {
 
     beforeEach(async () => {
         kudosInstance = await Kudos.new();
-    });
-
-    /**
-     * @test {Kudos#name}
-     */
-    it('name with success', async () => {
-        (await kudosInstance.name()).should.be.equal('KudosDLX');
-    });
-
-    /**
-     * @test {Kudos#symbol}
-     */
-    it('symbol with success', async () => {
-        (await kudosInstance.symbol()).should.be.equal('KDLX');
     });
 
     /**
