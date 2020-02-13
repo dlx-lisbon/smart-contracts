@@ -17,20 +17,18 @@ contract DLX is Ownable {
     struct Content {
         address author;
         ContentType contentType;
-        string infoHash;
     }
     // content attendees
     mapping(uint256 => mapping(address => bool)) public attendees;
     // contents array
     Content[] public contents;
-    // content canceled
+    // meetup canceled
     mapping(uint256 => bool) public meetupCanceled;
     // coordinators map
     mapping(address => bool) public coordinators;
 
-    event NewPost(uint256 _id, string _infoHash);
-    event NewMeetup(uint256 _id, string _infoHash);
-    event EditMeetup(uint256 _id, string _infoHash);
+    event NewPost(uint256 _id);
+    event NewMeetup(uint256 _id);
     event CancelMeetup(uint256 _id);
     event NewCoordinator(address _coordinator);
     event CoordinatorLeft(address _coordinator);
@@ -73,45 +71,25 @@ contract DLX is Ownable {
     /**
      * @dev Public method available to coordinators and the contract owner
      * used to register a new post.
-     * @param _infoHash IPFS hash containing the post's data
      */
-    function newPost(string memory _infoHash) public onlyCoordinators {
+    function newPost() public onlyCoordinators {
         Content memory content;
         content.author = msg.sender;
         content.contentType = ContentType.POST;
-        content.infoHash = _infoHash;
         uint256 id = contents.push(content) - 1;
-        emit NewPost(id, _infoHash);
+        emit NewPost(id);
     }
 
     /**
      * @dev Public method available to coordinators and the contract owner
      * used to register a new meetups.
-     * @param _infoHash IPFS hash containing the title, full description, and location of the meetup
      */
-    function newMeetup(string memory _infoHash) public onlyCoordinators {
+    function newMeetup() public onlyCoordinators {
         Content memory content;
         content.author = msg.sender;
         content.contentType = ContentType.MEETUP;
-        content.infoHash = _infoHash;
         uint256 id = contents.push(content) - 1;
-        emit NewMeetup(id, _infoHash);
-    }
-
-    /**
-     * @dev Public method available to coordinators and the contract owner
-     * used to edit a meetup.
-     * @param _id meetup id
-     * @param _infoHash IPFS hash containing the title, full description, and location of the meetup
-     */
-    function editMeetup(
-        uint256 _id,
-        string memory _infoHash
-    ) public onlyCoordinators {
-        Content memory content = contents[_id];
-        content.infoHash = _infoHash;
-        contents[_id] = content;
-        emit EditMeetup(_id, _infoHash);
+        emit NewMeetup(id);
     }
 
     /**
@@ -120,8 +98,6 @@ contract DLX is Ownable {
      * @param _id meetup id
      */
     function cancelMeetup(uint256 _id) public onlyCoordinators {
-        Content memory content = contents[_id];
-        contents[_id] = content;
         meetupCanceled[_id] = true;
         emit CancelMeetup(_id);
     }
@@ -131,9 +107,7 @@ contract DLX is Ownable {
      * @param _id meetup id
      */
     function joinMeetup(uint256 _id) public {
-        Content storage content = contents[_id];
         attendees[_id][msg.sender] = true;
-        contents[_id] = content;
     }
 
     /**
@@ -141,10 +115,8 @@ contract DLX is Ownable {
      * @param _id meetup id
      */
     function leaveMeetup(uint256 _id) public {
-        Content storage content = contents[_id];
-        require(attendees[_id][msg.sender] == true, "Not in content!");
+        require(attendees[_id][msg.sender] == true, "Not signed!");
         attendees[_id][msg.sender] = false;
-        contents[_id] = content;
     }
 
     /**
