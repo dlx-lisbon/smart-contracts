@@ -47,7 +47,7 @@
         "eslint-plugin-react": "7.18.3",
         "eth-gas-reporter": "0.2.15",
         "ethlint": "1.2.5",
-        "ganache-cli": "6.9.0",
+        "ganache-cli": "6.9.1",
         "highlight.js": "9.18.1",
         "markdown-it": "10.0.0",
         "markdown-it-emoji": "1.4.0",
