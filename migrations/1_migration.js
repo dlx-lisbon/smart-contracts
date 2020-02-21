@@ -2,16 +2,19 @@ const Migrations = artifacts.require('./Migrations.sol');
 const DLX = artifacts.require('./DLX.sol');
 const Kudos = artifacts.require('./Kudos.sol');
 const Challenge = artifacts.require('./Challenge.sol');
+require('dotenv').config()
 
-module.exports = async (deployer, network, accounts) => {
+
+// for dev only!
+export default async (deployer, network, accounts) => {
     await deployer.deploy(Migrations);
     await deployer.deploy(DLX);
     await deployer.deploy(Kudos);
-    await deployer.deploy(Challenge);
+    await deployer.deploy(Challenge, DLX.address);
     const meetup = await DLX.deployed();
-    meetup.transferOwnership('0xA6b94Ce98D6CD4f447a9C6788F169DD17f65f747', { from: accounts[0]});
+    meetup.transferOwnership(process.env.USER_ADDRESS, { from: accounts[0]});
     const challenge = await Challenge.deployed();
-    challenge.transferOwnership('0xA6b94Ce98D6CD4f447a9C6788F169DD17f65f747', { from: accounts[0]});
+    challenge.transferOwnership(process.env.USER_ADDRESS, { from: accounts[0]});
     const kudos = await Kudos.deployed();
-    kudos.addMinter('0xA6b94Ce98D6CD4f447a9C6788F169DD17f65f747', { from: accounts[0]});
+    kudos.addMinter(process.env.USER_ADDRESS, { from: accounts[0]});
 };
