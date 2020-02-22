@@ -2,11 +2,13 @@ const Migrations = artifacts.require('./Migrations.sol');
 const DLX = artifacts.require('./DLX.sol');
 const Kudos = artifacts.require('./Kudos.sol');
 const Challenge = artifacts.require('./Challenge.sol');
-require('dotenv').config()
+
+const nodejsPath = require('path');
+require('dotenv').config({ path: nodejsPath.join(process.cwd(), '..') });
 
 
 // for dev only!
-export default async (deployer, network, accounts) => {
+module.exports = async (deployer, network, accounts) => {
     await deployer.deploy(Migrations);
     await deployer.deploy(DLX);
     await deployer.deploy(Kudos);
