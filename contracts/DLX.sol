@@ -1,13 +1,14 @@
 pragma solidity ^0.5.10;
 
-import "@openzeppelin/contracts/ownership/Ownable.sol";
+import "@openzeppelin/contracts/access/Roles.sol";
 
 
 /**
  * @title DLX
  * @dev DLX control contract
  */
-contract DLX is Ownable {
+contract DLX {
+    using Roles for Roles.Role;
     enum ContentType { MEETUP, POST }
     /**
      * Content data sctructure
@@ -24,8 +25,8 @@ contract DLX is Ownable {
     Content[] public contents;
     // meetup canceled
     mapping(uint256 => bool) public meetupCanceled;
-    // coordinators map
-    mapping(address => bool) public coordinators;
+    // coordinators
+    Roles.Role private coordinators;
 
     event NewPost(uint256 _id);
     event NewMeetup(uint256 _id);
@@ -37,34 +38,40 @@ contract DLX is Ownable {
      * @dev Modifier to restrict any action to coordinators and contract owner.
      */
     modifier onlyCoordinators() {
-        require(msg.sender == owner() || coordinators[msg.sender] == true, "Not Allowed!");
+        require(coordinators.has(msg.sender), "Not Allowed!");
         _;
     }
 
     /**
      * @dev Constructor method initializing Meetup
      */
-    constructor() public Ownable() {
-        //
+    constructor() public {
+        coordinators.add(msg.sender);
     }
 
     /**
-     * @dev Public method available only to the contract owner
-     * used to add new coordinators.
+     * @dev Public method used to add new coordinators.
      * @param _coordinator address of the coordinator to be added
      */
-    function addCoordinator(address _coordinator) public onlyOwner {
-        coordinators[_coordinator] = true;
+    function addCoordinator(address _coordinator) public onlyCoordinators {
+        coordinators.add(_coordinator);
         emit NewCoordinator(_coordinator);
     }
 
     /**
-     * @dev Public method available only to the contract owner
-     * used to remove a given coordinator.
+     * @dev Public method used to verify if a user is a coordinators.
+     * @param _coordinator address to be verified
+     */
+    function isCoordinator(address _coordinator) public view returns (bool) {
+        return coordinators.has(_coordinator);
+    }
+
+    /**
+     * @dev Public method used to remove a given coordinator.
      * @param _coordinator address of the coordinator to be removed
      */
-    function removeCoordinator(address _coordinator) public onlyOwner {
-        coordinators[_coordinator] = false;
+    function removeCoordinator(address _coordinator) public onlyCoordinators {
+        coordinators.remove(_coordinator);
         emit CoordinatorLeft(_coordinator);
     }
 
