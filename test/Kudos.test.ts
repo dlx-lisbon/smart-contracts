@@ -1,5 +1,5 @@
 import { should } from 'chai';
-import { KudosInstance } from '../types/truffle-contracts';
+import { KudosInstance, DLXInstance } from '../types/truffle-contracts';
 
 const {
     expectRevert,
@@ -7,19 +7,22 @@ const {
 } = require('@openzeppelin/test-helpers');
 
 
+const DLX = artifacts.require('./DLX.sol') as Truffle.Contract<DLXInstance>;
 const Kudos = artifacts.require('./Kudos.sol') as Truffle.Contract<KudosInstance>;
 should();
 
 /** @test {Kudos} contract */
 contract('Kudos', (accounts) => {
     let kudosInstance: KudosInstance;
+    let dlxInstance: DLXInstance;
     const owner = accounts[0];
     const coordinator1 = accounts[1];
     const user1 = accounts[2];
 
 
     beforeEach(async () => {
-        kudosInstance = await Kudos.new();
+        dlxInstance = await DLX.new();
+        kudosInstance = await Kudos.new(dlxInstance.address);
     });
 
     /**
@@ -40,7 +43,7 @@ contract('Kudos', (accounts) => {
         const tokenId = (await kudosInstance.totalSupply()).toNumber() + 1;
         await expectRevert(
             kudosInstance.mintWithTokenURI(user1, tokenId, tokenURI, { from: coordinator1 }),
-            'MinterRole: caller does not have the Minter role',
+            'Not Allowed!',
         );
     });
 });

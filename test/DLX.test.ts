@@ -23,11 +23,11 @@ contract('DLX', (accounts) => {
          * @test {DLX#addCoordinator}
          */
         it('add coordinator with success', async () => {
-            (await dlxInstance.coordinators(coordinator1)).should.be.equal(false);
+            (await dlxInstance.isCoordinator(coordinator1)).should.be.equal(false);
             // add coordinator
             await dlxInstance.addCoordinator(coordinator1, { from: owner });
             // verify again
-            (await dlxInstance.coordinators(coordinator1)).should.be.equal(true);
+            (await dlxInstance.isCoordinator(coordinator1)).should.be.equal(true);
         });
 
         /**
@@ -36,11 +36,11 @@ contract('DLX', (accounts) => {
          */
         it('remove coordinator with success', async () => {
             await dlxInstance.addCoordinator(coordinator1, { from: owner });
-            (await dlxInstance.coordinators(coordinator1)).should.be.equal(true);
+            (await dlxInstance.isCoordinator(coordinator1)).should.be.equal(true);
             // add coordinator
             await dlxInstance.removeCoordinator(coordinator1, { from: owner });
             // verify again
-            (await dlxInstance.coordinators(coordinator1)).should.be.equal(false);
+            (await dlxInstance.isCoordinator(coordinator1)).should.be.equal(false);
         });
 
         /**
