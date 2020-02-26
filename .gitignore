@@ -111,3 +111,5 @@ types/
 
 .openzeppelin/.session
 .openzeppelin/dev-5777.json
+
+db_ganache/
