@@ -1,13 +1,22 @@
 const Migrations = artifacts.require('./Migrations.sol');
-const MeetupCore = artifacts.require('./MeetupCore.sol');
-const KudosCore = artifacts.require('./KudosCore.sol');
+const DLX = artifacts.require('./DLX.sol');
+const Kudos = artifacts.require('./Kudos.sol');
+const Challenge = artifacts.require('./Challenge.sol');
 
+const nodejsPath = require('path');
+require('dotenv').config({ path: nodejsPath.join(process.cwd(), '../.env') });
+
+
+// for dev only!
 module.exports = async (deployer, network, accounts) => {
+    let demoUserAddress = process.env.USER_ADDRESS;
+    if (demoUserAddress === undefined) {
+        demoUserAddress = accounts[1];
+    }
     await deployer.deploy(Migrations);
-    await deployer.deploy(MeetupCore);
-    await deployer.deploy(KudosCore);
-    const meetupCore = await MeetupCore.deployed();
-    meetupCore.transferOwnership('0xA6b94Ce98D6CD4f447a9C6788F169DD17f65f747', { from: accounts[0]});
-    const kudosCore = await KudosCore.deployed();
-    kudosCore.addMinter('0xA6b94Ce98D6CD4f447a9C6788F169DD17f65f747', { from: accounts[0]});
+    await deployer.deploy(DLX);
+    await deployer.deploy(Kudos, DLX.address);
+    await deployer.deploy(Challenge, DLX.address);
+    const dlx = await DLX.deployed();
+    dlx.addCoordinator(process.env.USER_ADDRESS, { from: accounts[0]});
 };
