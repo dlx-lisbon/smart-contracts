@@ -5,6 +5,7 @@ interface IDLX {
     function isCoordinator(address _coordinator) external view returns (bool);
 }
 
+
 /**
  * @title Challenge
  * @dev Challenge control contract
@@ -22,8 +23,11 @@ contract Challenge {
     event CompletedChallenge(address user, uint256 challengeId);
 
     modifier onlySystemOrCoordinators() {
-        require(IDLX(dlxAddress).isCoordinator(msg.sender) ||
-            msg.sender == dlxAddress, "Not Allowed!");
+        require(
+            IDLX(dlxAddress).isCoordinator(msg.sender) ||
+            msg.sender == dlxAddress,
+            "Not Allowed!"
+        );
         _;
     }
 

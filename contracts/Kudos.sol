@@ -8,6 +8,7 @@ interface IDLX {
     function isCoordinator(address _coordinator) external view returns (bool);
 }
 
+
 /**
  * @title Kudos
  * @dev Kudos control contract
@@ -39,7 +40,11 @@ contract Kudos is ERC721, ERC721Enumerable, ERC721Metadata {
      * @param tokenURI The token URI of the minted token.
      * @return A boolean that indicates if the operation was successful.
      */
-    function mintWithTokenURI(address to, uint256 tokenId, string memory tokenURI) public onlyCoordinators returns (bool) {
+    function mintWithTokenURI(
+        address to,
+        uint256 tokenId,
+        string memory tokenURI
+    ) public onlyCoordinators returns (bool) {
         _mint(to, tokenId);
         _setTokenURI(tokenId, tokenURI);
         return true;

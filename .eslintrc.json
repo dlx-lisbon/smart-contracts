@@ -1,7 +1,6 @@
 {
     "root": true,
     "extends": [
-        "airbnb-base",
         "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
