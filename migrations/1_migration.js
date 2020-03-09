@@ -18,5 +18,5 @@ module.exports = async (deployer, network, accounts) => {
     await deployer.deploy(Kudos, DLX.address);
     await deployer.deploy(Challenge, DLX.address);
     const dlx = await DLX.deployed();
-    dlx.addCoordinator(process.env.USER_ADDRESS, { from: accounts[0]});
+    dlx.addCoordinator(demoUserAddress, { from: accounts[0]});
 };
