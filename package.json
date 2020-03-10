@@ -30,7 +30,7 @@
     },
     "devDependencies": {
         "@openzeppelin/test-helpers": "0.5.4",
-        "@truffle/hdwallet-provider": "1.0.30",
+        "@truffle/hdwallet-provider": "1.0.32",
         "@types/chai": "4.2.10",
         "@types/node": "13.7.0",
         "@typescript-eslint/eslint-plugin": "2.23.0",
