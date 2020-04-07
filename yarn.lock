@@ -6342,10 +6342,10 @@ sol-explore@1.6.1:
   resolved "https://registry.yarnpkg.com/sol-explore/-/sol-explore-1.6.1.tgz#b59f073c69fe332560d5a10c32ba8ca7f2986cfb"
   integrity sha1-tZ8HPGn+MyVg1aEMMrqMp/KYbPs=
 
-solidity-coverage@0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/solidity-coverage/-/solidity-coverage-0.7.2.tgz#b8b3ade3f03e9d71940bc84fb319ba7706e35a64"
-  integrity sha512-LizgpcrkMRmZdvOmwYN7l/h9ak0Yq/5BuXjEaH0Phds1Gu5hZfHGyvplgWYDFmzLwGB7hZ6d0/IdkdYm4HK0mg==
+solidity-coverage@0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/solidity-coverage/-/solidity-coverage-0.7.3.tgz#5366a8928fc284f55a59001d515f0b2758d4d877"
+  integrity sha512-8goF0xkbli2jI2IgVE3wXZkNAEPm1LjWCvHOR80x1PPS+pWcRBZxtHV0gXljiReHedGBeLcboPaz/amKExGmBg==
   dependencies:
     "@truffle/provider" "^0.1.17"
     chalk "^2.4.2"
