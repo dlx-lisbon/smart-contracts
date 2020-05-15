@@ -17,4 +17,3 @@ install:
 script:
     - yarn test:ci
     - yarn coverage:ci
-    - yarn lint
