@@ -44,8 +44,8 @@ contract Challenge {
     }
 
     function add() public onlyCoordinators {
-        uint256 challengeId = challengeAuthor.push(msg.sender) - 1;
-        emit AddChallenge(msg.sender, challengeId);
+        challengeAuthor.push(msg.sender);
+        emit AddChallenge(msg.sender, challengeAuthor.length);
     }
 
     function remove(uint256 _challengeId) public onlyCoordinators {
