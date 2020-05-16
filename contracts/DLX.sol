@@ -1,14 +1,14 @@
-pragma solidity ^0.5.10;
+pragma solidity ^0.6.0;
 
-import "@openzeppelin/contracts/access/Roles.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
 
 
 /**
  * @title DLX
  * @dev DLX control contract
  */
-contract DLX {
-    using Roles for Roles.Role;
+contract DLX is AccessControl {
+    bytes32 public constant COORDINATOR_ROLE = keccak256("COORDINATOR_ROLE");
     enum ContentType { MEETUP, POST }
     /**
      * Content data sctructure
@@ -25,8 +25,6 @@ contract DLX {
     Content[] public contents;
     // meetup canceled
     mapping(uint256 => bool) public meetupCanceled;
-    // coordinators
-    Roles.Role private coordinators;
 
     event NewPost(uint256 _id);
     event NewMeetup(uint256 _id);
@@ -38,7 +36,7 @@ contract DLX {
      * @dev Modifier to restrict any action to coordinators and contract owner.
      */
     modifier onlyCoordinators() {
-        require(coordinators.has(msg.sender), "Not Allowed!");
+        require(hasRole(COORDINATOR_ROLE, msg.sender), "Not Allowed!");
         _;
     }
 
@@ -46,7 +44,8 @@ contract DLX {
      * @dev Constructor method initializing Meetup
      */
     constructor() public {
-        coordinators.add(msg.sender);
+        _setupRole(COORDINATOR_ROLE, msg.sender);
+        _setRoleAdmin(COORDINATOR_ROLE, COORDINATOR_ROLE);
     }
 
     /**
@@ -54,7 +53,7 @@ contract DLX {
      * @param _coordinator address of the coordinator to be added
      */
     function addCoordinator(address _coordinator) public onlyCoordinators {
-        coordinators.add(_coordinator);
+        grantRole(COORDINATOR_ROLE, _coordinator);
         emit NewCoordinator(_coordinator);
     }
 
@@ -63,7 +62,7 @@ contract DLX {
      * @param _coordinator address to be verified
      */
     function isCoordinator(address _coordinator) public view returns (bool) {
-        return coordinators.has(_coordinator);
+        return hasRole(COORDINATOR_ROLE, msg.sender);
     }
 
     /**
@@ -71,7 +70,7 @@ contract DLX {
      * @param _coordinator address of the coordinator to be removed
      */
     function removeCoordinator(address _coordinator) public onlyCoordinators {
-        coordinators.remove(_coordinator);
+        revokeRole(COORDINATOR_ROLE, _coordinator);
         emit CoordinatorLeft(_coordinator);
     }
 

@@ -1,8 +1,6 @@
-pragma solidity ^0.5.10;
+pragma solidity ^0.6.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/ERC721Metadata.sol";
-import "@openzeppelin/contracts/token/ERC721/ERC721Enumerable.sol";
 
 interface IDLX {
     function isCoordinator(address _coordinator) external view returns (bool);
@@ -13,7 +11,7 @@ interface IDLX {
  * @title Kudos
  * @dev Kudos control contract
  */
-contract Kudos is ERC721, ERC721Enumerable, ERC721Metadata {
+contract Kudos is ERC721 {
     address private dlxAddress;
 
     modifier onlyCoordinators() {
@@ -25,8 +23,7 @@ contract Kudos is ERC721, ERC721Enumerable, ERC721Metadata {
      * @dev Constructor method initializing KudosCore
      */
     constructor(address _dlxAddress)
-        ERC721()
-        ERC721Metadata("KudosDLX", "KDLX")
+        ERC721("KudosDLX", "KDLX")
         public
     {
         //
