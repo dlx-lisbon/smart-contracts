@@ -1,16 +1,28 @@
-# [DLX] Smart Contracts
+<div align="center">
+    <img style="max-width: 768px; width: 100%" src="logo.webp">
+</div>
 
-Foobar is a Python library for dealing with word pluralization.
+<div align="center">
+    <div>
+        <a
+            href="https://travis-ci.org/dlx-lisbon/smart-contracts"><img
+                src="https://travis-ci.org/dlx-lisbon/smart-contracts.svg?branch=master" /></a>&emsp;
+        <a
+            href='https://coveralls.io/github/dlx-lisbon/smart-contracts?branch=master'><img
+                src='https://coveralls.io/repos/github/dlx-lisbon/smart-contracts/badge.svg?branch=master' alt='Coverage Status' /></a>&emsp;
+        <a
+            href="https://dependabot.com"><img
+                src="https://api.dependabot.com/badges/status?host=github&repo=dlx-lisbon/smart-contracts" /></a>&emsp;
+    </div>
+</div>
 
-## Instalação
 
-Use [yarn](https://yarnpkg.com/) para instalar as dependencias.
+Este repositório contém o código para os smart-contracts.
 
-```bash
-yarn
-```
+## Contribuir
+Lê as instruções de [contribuição](CONTRIBUTING.md).
 
-## Uso
+## Desenvolvimento
 
 Para executar os testes, o comando `yarn test`deve ser usado. Assim como para lint e cobertura de testes, deve ser `yarn lint` e `yarn coverage` respetivamente.
 
@@ -19,10 +31,6 @@ Com eles vai iniciar um simulação de um nó, através do ganache, com 10 conta
 
 `yarn start:ganache:development` para iniciar o ganache e noutra linha de comandos `yarn deploy:ganache:development`.
 
-## Contribuir
-Pull requests são bem vindos. Para alterações grandes, por favor abre um issue para discutir essa mesma alteraçãp.
 
-Por favor, verifica que os testes funciona como desejado.
-
-## License
-[GPL-3](LICENSE)
+## Licença
+[GNU General Public License v3](LICENSE)
