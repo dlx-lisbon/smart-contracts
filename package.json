@@ -43,7 +43,7 @@
         "ethlint": "1.2.5",
         "ganache-cli": "6.9.1",
         "solidity-coverage": "0.7.5",
-        "truffle": "5.1.27",
+        "truffle": "5.1.28",
         "truffle-typings": "1.0.8",
         "ts-node": "8.10.2",
         "typechain": "^1.0.0",
