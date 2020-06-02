@@ -29,7 +29,7 @@
         "@openzeppelin/contracts": "3.0.1"
     },
     "devDependencies": {
-        "@openzeppelin/test-helpers": "0.5.5",
+        "@openzeppelin/test-helpers": "0.5.6",
         "@truffle/hdwallet-provider": "1.0.35",
         "@types/chai": "4.2.11",
         "@types/node": "14.0.6",
