@@ -26,7 +26,7 @@
     "author": "dlx",
     "license": "GPL-3.0-only",
     "dependencies": {
-        "@openzeppelin/contracts": "3.0.1"
+        "@openzeppelin/contracts": "4.4.2"
     },
     "devDependencies": {
         "@openzeppelin/test-helpers": "0.5.6",
